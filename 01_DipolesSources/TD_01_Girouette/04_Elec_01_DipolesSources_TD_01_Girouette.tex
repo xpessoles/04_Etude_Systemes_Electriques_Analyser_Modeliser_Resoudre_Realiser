@@ -1,0 +1,189 @@
+\documentclass[10pt]{article}
+\input{style/coursHeadings}
+\input{style/programHeadings}
+\input{style/macros_SII}
+\input{style/macros_Titres}
+\input{style/macros_Frames}
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+\newboolean{xp}
+\setboolean{xp}{true}
+
+\newboolean{prof}
+\setboolean{prof}{true}
+
+\newif\ifprof
+\proftrue
+%\proffalse
+
+\newboolean{td}
+\setboolean{td}{true}
+
+\usepackage[%
+    pdftitle={},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+\def\discipline{Sciences Industrielles de l'Ingénieur}
+
+\def\xxtitre{\ifthenelse{\boolean{xp}}{04 -- Étude des Systèmes Électriques -- Analyser, Modéliser, Résoudre, Réaliser}{}}
+
+\def\xxsoustitre{\ifthenelse{\boolean{xp}}{
+Chapitre 1 -- Dipôles, Sources et Circuits électriques}{
+}}
+
+
+\def\xxauteur{\ifthenelse{\boolean{xp}}{
+Laurent \textsc{Deschamps}\\
+\noindent Xavier \textsc{Pessoles}}{
+}}
+
+
+\def\xxpied{\ifthenelse{\boolean{xp}}{
+04 : Systèmes Électriques\\
+Ch 1 : Dipôles, Sources et Circuits électriques -- TD 01 -- \ifprof P \else E \fi %
+}{
+}}
+
+\def\xxcathegorie{\ifthenelse{\boolean{xp}}{
+2013 -- 2014 \\
+Xavier \textsc{Pessoles}}{
+Systèmes électriques - Cours}}
+
+
+
+
+
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+
+\ifthenelse{\boolean{xp}}{\input{style/enteteXP}}{\input{style/enteteDI}}
+
+
+
+%\renewcommand{\baselinestretch}{1.2}
+%\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+
+
+
+\begin{comp}
+\noindent \textbf{Résoudre :} 
+\begin{itemize}
+\item 
+\end{itemize}
+
+\noindent \textit{Rés -- C1.1 :} 
+\end{comp}
+
+\section*{Girouette -- anémomètre de voilier}
+
+
+
+\begin{minipage}[c]{.6\linewidth}
+On s'intéresse à l'ensemble girouette--anémomètre d'une centrale de navigation monté en tête de mât d'un voilier et plus en particulier à la girouette permettant de connaître l'orientation du vent. 
+\begin{obj}
+L'objectif est de modéliser le circuit électrique du système afin de pouvoir connaître l'orientation du vent en fonction de la position du potentiomètre rotatif.
+\end{obj}
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.35\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/GirouetteAnemometre}
+\end{center}
+\end{minipage}
+
+\vspace{.25cm}
+
+\begin{minipage}[c]{.32\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/uc}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.32\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/contexte}
+\end{center}
+\end{minipage}  \hfill
+\begin{minipage}[c]{.32\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/bdd}
+\end{center}
+\end{minipage} 
+
+\vspace{.25cm}
+
+On donne le diagramme de bloc interne associé au système de mesure de la direction du vent ainsi que le le schéma électrique du potentiomètre rotatif. 
+
+\vspace{.25cm}
+
+\begin{minipage}[c]{.55\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/ibd}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+%\includegraphics[width=\textwidth]{images/GirouetteAnemometre}
+\end{center}
+\end{minipage} 
+
+\vspace{.25cm}
+
+On suppose que l'angle du potentiomètre varie de $-\pi$ à $\pi$. On note $R_0= 10 \; k\Omega$ la résistance totale entre $A$ et $C$ et $R'$ la résistance de la piste comprise entre $A$ et $B$. 
+
+\subparagraph{}
+\textit{Déterminer l'expression de $R_0$ en fonction de $\alpha$ et $R_0$. }
+ 
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+Pour faciliter l'étude de ce capteur, on se ramène au schéma électrique équivalent ci-contre.
+
+\subparagraph{}
+\textit{Quelles doivent être les expressions de $R_1$ et de $R_2$ en fonction de $R$, $R'$ et $R_0$ et les valeurs de $E_1$ et de $E_2$ pour qu'il en soit ainsi ?}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+On note $E_{Th}$ et $R_{Th}$ les éléments du générateur de Thévenin vus entre le point $B$ et la masse. 
+
+\subparagraph{}
+\textit{Exprimer $E_{th}$ en fonction de $E_1$ , $E_2$, $R_1$ et $R_2$, puis en fonction de $R$, $R_0$ et $\alpha$. Exprimer $R_{Th}$ en fonction de $R_1$ et $R_2$ puis en fonction de $R$, $R_0$ et $\alpha$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{Calculer la valeur des résistances $R$ pour que la tension $V_s$ à vide varie entre $-4\; V$ et $+4\; V$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{Tracer les caractéristiques $E_{Th} = f(\alpha)$ et $R_{Th}=g(\alpha)$. Préciser les valeurs minimales et maximales.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+
+
+
+\end{document}
+
