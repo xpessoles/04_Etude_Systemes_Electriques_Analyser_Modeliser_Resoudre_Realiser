@@ -126,9 +126,11 @@ On donne le diagramme de bloc interne associé au système de mesure de la direc
 \includegraphics[width=\textwidth]{images/ibd}
 \end{center}
 \end{minipage}\hfill
-\begin{minipage}[c]{.3\linewidth}
+\begin{minipage}[c]{.4\linewidth}
 \begin{center}
-%\includegraphics[width=\textwidth]{images/GirouetteAnemometre}
+\includegraphics[width=\textwidth]{images/capteur}
+
+\textit{Schématisation du potentiomètre rotatif}
 \end{center}
 \end{minipage} 
 
@@ -137,20 +139,36 @@ On donne le diagramme de bloc interne associé au système de mesure de la direc
 On suppose que l'angle du potentiomètre varie de $-\pi$ à $\pi$. On note $R_0= 10 \; k\Omega$ la résistance totale entre $A$ et $C$ et $R'$ la résistance de la piste comprise entre $A$ et $B$. 
 
 \subparagraph{}
-\textit{Déterminer l'expression de $R_0$ en fonction de $\alpha$ et $R_0$. }
+\textit{Déterminer l'expression de $R'$ en fonction de $\alpha$ et $R_0$. }
  
 \ifprof
 \begin{corrige}
+Lorsque $\alpha = -\pi$, $R' = 0$; lorsque $\alpha = \pi$, $R' = R_0 $. La variation de résistance est proportionnelle au secteur angulaire, on a donc : 
+$$ R' (\alpha)= \dfrac{R_0}{2} + \dfrac{R_0}{2\pi} \alpha  $$
 \end{corrige}
 \else
 \fi
 
-Pour faciliter l'étude de ce capteur, on se ramène au schéma électrique équivalent ci-contre.
+Pour faciliter l'étude de ce capteur, on se ramène au schéma électrique équivalent ci-dessous.
+
+\begin{center}
+\includegraphics[width=\textwidth]{images/modele}
+
+\textit{Modélisation du potentiomètre rotatif}
+\end{center}
 
 \subparagraph{}
 \textit{Quelles doivent être les expressions de $R_1$ et de $R_2$ en fonction de $R$, $R'$ et $R_0$ et les valeurs de $E_1$ et de $E_2$ pour qu'il en soit ainsi ?}
 \ifprof
 \begin{corrige}
+
+Pour que la modélisation soit conforme au capteur initial, il faut nécessairement que : 
+\begin{itemize}
+\item $R_1 = R + R_0 - R'$;
+\item $R_2 = R + R'$;
+\item $E_1 = +6 V$; 
+\item $E_2 = -6 V$.
+\end{itemize}
 \end{corrige}
 \else
 \fi
@@ -161,6 +179,48 @@ On note $E_{Th}$ et $R_{Th}$ les éléments du générateur de Thévenin vus ent
 \textit{Exprimer $E_{th}$ en fonction de $E_1$ , $E_2$, $R_1$ et $R_2$, puis en fonction de $R$, $R_0$ et $\alpha$. Exprimer $R_{Th}$ en fonction de $R_1$ et $R_2$ puis en fonction de $R$, $R_0$ et $\alpha$.}
 \ifprof
 \begin{corrige}
+Pour calculer la résistance de Thévenin, on désactive les sources et on calcule la résistance équivalente : 
+$$
+R_{Th}  = \dfrac{R_1 R_2 }{R_1 + R_2} = \dfrac{\left(R + R_0 - R' \right) \left( R + R'\right)}{R + R_0 - R' + R + R'} 
+= \dfrac{R^2 + R_0 R + R_0 R'  - R'^2}{2R + R_0  }
+$$
+
+$$
+R_{Th}  =  \dfrac{R^2 + R_0 R + R_0 \left(  \dfrac{R_0}{2} + \dfrac{R_0}{2\pi} \alpha \right)  - \left(  \dfrac{R_0}{2} + \dfrac{R_0}{2\pi} \alpha \right) ^2}{2R + R_0  }
+ = 
+\dfrac{R^2 + R_0 R +   \dfrac{R_0^2}{2} + \dfrac{R_0^2}{2\pi} \alpha   -  \dfrac{R_0^2}{4} - \dfrac{R_0^2}{4\pi^2} \alpha^2 - 2 \dfrac{R_0^2 \alpha }{4\pi}  }{2R + R_0  }
+$$
+
+
+$$
+R_{Th}   = 
+\dfrac{R^2 + R_0 R +   \dfrac{R_0^2}{4} \left( 1 - \dfrac{\alpha^2}{\pi^2}  \right) }{2R + R_0  }
+$$
+
+Pour calculer $E_{Th}$ on utilise le théorème de Millmann et on a : 
+$$
+E_{Th}
+= \dfrac{\dfrac{E_1}{R_1}+\dfrac{E_2}{R_2}}{\dfrac{1}{R_1} + \dfrac{1}{R_2}} 
+= \dfrac{E_1 R_2 + E_2 R_1}{R_2 + R_1}
+= \dfrac{E_1 \left( R + R'\right) + E_2 \left( R + R_0 - R' \right)}{\left(R + R' \right) +\left( R + R_0 - R'\right)}
+$$
+$$
+E_{Th} \left( \alpha \right)
+= \dfrac{E_1 \left( R + \left(\dfrac{R_0}{2} + \dfrac{R_0}{2\pi} \alpha \right)\right) + E_2 \left( R + R_0 - \left(\dfrac{R_0}{2} + \dfrac{R_0}{2\pi} \alpha \right)\right)}{\left(R + \left(\dfrac{R_0}{2} + \dfrac{R_0}{2\pi} \alpha \right)\right) +\left( R + R_0 - \left( \dfrac{R_0}{2} + \dfrac{R_0}{2\pi} \alpha \right)\right)}
+= \dfrac{E_1 \left( R + R_0 \dfrac{\pi + \alpha }{2 \pi}  \right) + E_2 \left( R + R_0  \dfrac{\pi - \alpha }{2\pi} \right)}{\left(R + R_0 \dfrac{\pi  + \alpha }{2 \pi} \right) +\left( R + R_0  \dfrac{\pi - \alpha }{2\pi} \right)}
+$$
+
+$$
+E_{Th} \left( \alpha \right)
+= \dfrac{E_1 \left( R + R_0 \dfrac{\pi + \alpha }{2 \pi}  \right) + E_2 \left( R + R_0  \dfrac{\pi - \alpha }{2\pi} \right)}{ 2 R + R_0}
+$$
+Or, $E_1 = -E_2 = 6\; V$; donc : 
+
+$$
+E_{Th} \left( \alpha \right)
+= \dfrac{ 6\left( R + R_0 \dfrac{\pi + \alpha }{2 \pi}  \right) -6 \left( R + R_0  \dfrac{\pi - \alpha }{2\pi} \right)}{ 2 R + R_0}
+= \dfrac{6\alpha R_0}{\pi \left(2R + R_0 \right)}
+$$
 \end{corrige}
 \else
 \fi
@@ -169,6 +229,34 @@ On note $E_{Th}$ et $R_{Th}$ les éléments du générateur de Thévenin vus ent
 \textit{Calculer la valeur des résistances $R$ pour que la tension $V_s$ à vide varie entre $-4\; V$ et $+4\; V$.}
 \ifprof
 \begin{corrige}
+Lorsque le montage est à vide, le courant ne circule pas. L'intensité est donc nulle. En conséquence : 
+$$
+V_S = E_{Th}
+$$
+
+Pour $\alpha=-\pi$, on veut donc $V_S = -4$, en conséquence :
+$$
+E_{Th}\left( -\pi \right)  = -4 
+\Longleftrightarrow
+ \dfrac{-6\pi R_0}{\pi \left(2R + R_0 \right)} = -4
+\Longleftrightarrow
+-6\pi R_0  = -4 \pi \left(2R + R_0 \right)
+\Longleftrightarrow
+R = \dfrac{R_0}{4}
+$$
+
+De même, pour $\alpha=\pi$, on veut donc $V_S = 4$, en conséquence :
+$$
+E_{Th}\left( \pi \right)  = 4 
+\Longleftrightarrow
+ \dfrac{6\pi R_0}{\pi \left(2R + R_0 \right)} = 4
+\Longleftrightarrow
+6\pi R_0  = 4 \pi \left(2R + R_0 \right)
+\Longleftrightarrow
+R = \dfrac{R_0}{4}
+$$
+
+
 \end{corrige}
 \else
 \fi
@@ -177,6 +265,7 @@ On note $E_{Th}$ et $R_{Th}$ les éléments du générateur de Thévenin vus ent
 \textit{Tracer les caractéristiques $E_{Th} = f(\alpha)$ et $R_{Th}=g(\alpha)$. Préciser les valeurs minimales et maximales.}
 \ifprof
 \begin{corrige}
+On a donc  $E_{Th} (\alpha) = \dfrac{4\alpha}{ \pi}$ et $R_{Th} (\alpha) =\dfrac{\dfrac{R_0^2}{16} +\dfrac{R_0^2}{4}+   \dfrac{R_0^2}{4} \left( 1 - \dfrac{\alpha^2}{\pi^2}  \right) }{\dfrac{3 R_0}{2} }  =\dfrac{\dfrac{R_0}{8} +\dfrac{R_0}{2}+   \dfrac{R_0}{2} \left( 1 - \dfrac{\alpha^2}{\pi^2}  \right) }{3 }=R_0 \dfrac{9  - \dfrac{4\alpha^2}{\pi^2}   }{12}$.
 \end{corrige}
 \else
 \fi
