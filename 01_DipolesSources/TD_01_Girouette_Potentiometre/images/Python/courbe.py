@@ -14,8 +14,8 @@ x=linspace(a,b,200)
 
 #plt.plot(x,4*x/pi)
 
-R0=10
-R = 2.5
+R0=10000
+R = R0/4
 #plt.plot(x,R0*(9-(4*x*x/(pi*pi)))/12)
 
 plt.plot(x,(5*R0+4*R0*(1-x*x/(pi*pi)))/24)
