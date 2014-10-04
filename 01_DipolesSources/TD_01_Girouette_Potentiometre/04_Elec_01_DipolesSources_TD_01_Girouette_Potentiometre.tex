@@ -14,8 +14,8 @@
 \setboolean{prof}{true}
 
 \newif\ifprof
-%\proftrue
-\proffalse
+\proftrue
+%\proffalse
 
 \newboolean{td}
 \setboolean{td}{true}
@@ -85,9 +85,9 @@ Systèmes électriques - Cours}}
 
 
 \begin{minipage}[c]{.6\linewidth}
-On s'intéresse à l'ensemble girouette--anémomètre d'une centrale de navigation monté en tête de mât d'un voilier et plus en particulier à la girouette permettant de connaître l'orientation du vent. 
+On s'intéresse à l'ensemble girouette--anémomètre d'une centrale de navigation monté en tête de mât d'un voilier et plus en particulier à la girouette permettant de connaître l'orientation du vent. Un potentiomètre rotatif dont l'axe est solidaire de la girouette permet de mesurer cette direction. 
 \begin{obj}
-L'objectif est de modéliser le circuit électrique du système afin de pouvoir connaître l'orientation du vent en fonction de la position du potentiomètre rotatif.
+Le matériel de mesure sur le bateau permet de réaliser des mesures entre +4 et -4V. Le potentiomètre est alimenté en -5/+5V. Quelle valeur de résistance choisir pour qu'une rotation de la girouette comprise entre $-\pi$ et $\pi$ soit traduite par une tension de sortie comprise entre -4 et 4V ?
 \end{obj}
 
 \end{minipage} \hfill
@@ -97,6 +97,8 @@ L'objectif est de modéliser le circuit électrique du système afin de pouvoir 
 \end{center}
 \end{minipage}
 
+\ifprof
+\else
 \vspace{.25cm}
 
 \begin{minipage}[c]{.32\linewidth}
@@ -137,7 +139,7 @@ On donne le diagramme de bloc interne associé au système de mesure de la direc
 \vspace{.25cm}
 
 On suppose que l'angle du potentiomètre varie de $-\pi$ à $\pi$. On note $R_0= 10 \; k\Omega$ la résistance totale entre $A$ et $C$ et $R'$ la résistance de la piste comprise entre $A$ et $B$. 
-
+\fi
 \subparagraph{}
 \textit{Déterminer l'expression de $R'$ en fonction de $\alpha$ et $R_0$. }
  
@@ -149,6 +151,8 @@ $$ R' (\alpha)= \dfrac{R_0}{2} + \dfrac{R_0}{2\pi} \alpha  $$
 \else
 \fi
 
+\ifprof
+\else
 Pour faciliter l'étude de ce capteur, on se ramène au schéma électrique équivalent ci-après.
 
 \begin{center}
@@ -156,6 +160,7 @@ Pour faciliter l'étude de ce capteur, on se ramène au schéma électrique équ
 
 \textit{Modélisation du potentiomètre rotatif}
 \end{center}
+\fi
 
 \subparagraph{}
 \textit{Quelles doivent être les expressions de $R_1$ et de $R_2$ en fonction de $R$, $R'$ et $R_0$ et les valeurs de $E_1$ et de $E_2$ pour qu'il en soit ainsi ?}
@@ -287,7 +292,14 @@ On a donc  $E_{Th} (\alpha) = \dfrac{4\alpha}{ \pi}$ et $R_{Th} (\alpha) =\dfrac
 
 
 \subparagraph{}
-\textit{Conclure sur le fonctionnement d'un capteur potentiométrique.}
+\textit{Conclure sur le comportement d'un capteur potentiométrique.}
+
+\ifprof
+\begin{corrige}
+Ce travail met le fonctionnement d'un capteur potentiométrique en évidence. On peut ainsi choisir les composants technologiques qui permettront de s'assurer que la tension mesurée sera proportionnelle à l'angle de déplacement et comprise entre -4 et +4V comme demandé dans le cahier des charges.  
+\end{corrige}
+\else
+\fi
 
 
 \end{document}
