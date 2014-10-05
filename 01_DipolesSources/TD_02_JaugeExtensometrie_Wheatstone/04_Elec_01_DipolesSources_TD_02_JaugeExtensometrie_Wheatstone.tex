@@ -110,29 +110,73 @@ On donne le diagramme de bloc interne associé au système de mesure du couple d
 \includegraphics[width=\textwidth]{images/ibd}
 \end{center}
 
-Chacun de ces éléments se retrouvent sur le schéma électrique de la chaîne d'acquisition :
+Chacun de ces éléments se retrouvent sur le schéma électrique de la chaîne d'acquisition.
 
+\begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{images/SchemaElec}
+
+\textit{Schéma électrique associé aux jauges de contraintes et aux dynamo tachymétriques de la capsuleuse} 
 \end{center}
+\end{figure}
 
-\subsubsection{Étude du pont de jauge}
-\begin{minipage}[c]{.6\linewidth}
 
-On s'intéresse tout d'abord au pont de jauge. Comme on le voit sur le schéma précédent, le pont est constitué de 4 jauges d'extensométrie. Une source électrique permet d'alimenter le pont. La mesure se fait aux bornes du pont. 
+\subsection*{Étude du positionnement des jauges}
+
+\begin{minipage}[c]{.78\linewidth}
+
+Comme on le constate sur le schéma électrique, les capteurs de couples sont constitués de 4 jauges d'extensométrie montées suivant un schéma électrique appelé << pont >>. Le pont est alimenté sur 2 bornes. La tension est mesurée à deux autres bornes du pont. 
+
+
+Chacune des jauges est constituée d'un fil collé sur le corps d'épreuve. Le corps d'épreuve participe à la transmission du couple entre l'arbre moteur et le maneton d'une part et entre la croix de Malte et l'étoile de transfert d'autre part. Ainsi, lors de la transmission du couple, le corps d'épreuve fléchit. Ce fléchissement provoque un allongement des fils qui changent alors de résistance. On peut montrer que la variation de résistance est proportionnelle au couple. 
 
 \end{minipage} \hfill
-\begin{minipage}[c]{.35\linewidth}
+\begin{minipage}[c]{.2\linewidth}
 \begin{center}
-\includegraphics[width=\textwidth]{images/jauge}
+\rotatebox{90}{\includegraphics[height=3cm]{images/jauge}}
 
 \textit{Jauge d'extensométrie -- Kyowa KFG}
 \end{center}
 \end{minipage}
 
+\subparagraph{}
+\textit{Chacune des jauges peut être modélisée par un résistor. \'A partir du schéma 
+électrique, réalisé le schéma électrique correspondant au câblage du pont.} 
 
-\subsection*{Étude du positionnement des jauges.}
-Les jauges de contraintes sont des constituées d'un fil collé sur le corps d'épreuve. Le corps d'épreuve participe à la transmission du couple entre l'arbre moteur et le maneton d'une part et entre la croix de Malte et l'étoile de transfert d'autre part. Ainsi, lors de la transmission du couple, le corps d'épreuve fléchit. Ce fléchissement provoque un allongement des fils qui changent alors de résistance. On peut montrer que la variation de résistance est proportionnelle au couple. 
+\begin{minipage}[c]{.49\linewidth}
+\subparagraph{}
+\textit{Le but d'un capteur d'effort est de mesurer ... un effort ! Comment déterminer le couple transmis par les capteurs de couple à partir de la mesure d'un effort ? Vous vous appuierez sur un schéma explicatif. }
+\end{minipage} \hfill
+\begin{minipage}[c]{.49\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/flexionCorps}
+\end{center}
+\end{minipage}
+
+
+
+
+\begin{minipage}[c]{.49\linewidth}
+Lors du fonctionnement de ce capteur d'effort il est nécessaire que deux des jauges se déforment de façon prépondérante, mais en opposition (quand une jauge s'allonge, l'autre doit se rétracter). La déformation des deux autres jauges doit être négligeable. 
+
+
+\subparagraph{}
+\textit{Sur la figure ci-contre indiquer le sens de collage des jauges. }
+\end{minipage} \hfill
+\begin{minipage}[c]{.49\linewidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/PlanJauge}
+\end{center}
+\end{minipage}
+
+\subsection*{Étude du pont de Wheatstone}
+
+La figure suivante illustre le passage de plan de câblage à la modélisation par schéma électrique. 
+
+\begin{center}
+\includegraphics[width=.75\textwidth]{images/cablage}
+\end{center}
+
 
 \end{document}
 
